@@ -115,7 +115,7 @@ if __name__ == '__main__':
     pred = sess.run([sess_output], {sess_input: img_resize.astype(np.float32)})[0]
     print(pred.shape)
 
-    ## Comparision output of onnx with Pytorch
+    ## Comparision output of onnx and output of Pytorch model
     # Pytorch results
     pytorch_result = resnet18(sample_input).detach().numpy()
     print(pytorch_result[0].shape)

@@ -4,11 +4,13 @@ Description
 =============
 
 #### - ONNX (Open Neural Network Exchange)
-  - 
+  - Standard format for expressing machine learning algorithms and models
+  - https://en.wikipedia.org/wiki/Open_Neural_Network_Exchange
 
 Contents
 =============
 #### - Converting Pytorch models to onnx
+  - 
   - Export onnx
   - Load onnx
   - Inference onnx

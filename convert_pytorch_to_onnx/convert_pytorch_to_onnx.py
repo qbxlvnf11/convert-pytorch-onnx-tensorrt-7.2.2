@@ -77,8 +77,10 @@ if __name__ == '__main__':
     resnet18.cpu().eval()
 
     # Sample
+    print(args.sample_image_path)
     sample_input = torch.randn(args.input_shape)
     img_resize, img_raw = load_image(args.sample_image_path, args.input_shape)
+    print(img_resize.shape, img_raw.shape)
 
     # Export onnx
     torch.onnx.export(
@@ -88,7 +90,7 @@ if __name__ == '__main__':
     export_params=args.export_params,
     keep_initializers_as_inputs=args.keep_initializers_as_inputs,
     opset_version=args.opset_version,
-    verbose=True)
+    verbose=False)
 
     # Load the ONNX model
     onnx_model = onnx.load(args.output_path)
@@ -106,11 +108,11 @@ if __name__ == '__main__':
     sess_output = sess.get_outputs()[0].name
     pred = sess.run([sess_output], {sess_input: img_resize.astype(np.float32)})[0]
     print(pred.shape)
-
+    
     ## Comparision output of onnx and output of Pytorch model
     # Pytorch results
-    pytorch_result = resnet18(sample_input).detach().numpy()
-    print(pytorch_result[0].shape)
+    img_resize_torch = torch.Tensor(img_resize)
+    pytorch_result = resnet18(img_resize_torch).detach().numpy()
 
     # ONNX results
     input_all = [node.name for node in onnx_model.graph.input]
@@ -121,9 +123,16 @@ if __name__ == '__main__':
     assert len(net_feed_input) == 1
     sess = rt.InferenceSession(args.output_path)
     onnx_result = sess.run(None,
-                            {net_feed_input[0]: sample_input.detach().numpy()
+                            {net_feed_input[0]: img_resize
                             })[0]
-    print(onnx_result[0].shape)
+    print(args)
+    print('--pytorch--')
+    print(pytorch_result.shape)
+    print(np.argmax(pytorch_result, axis=1))
+
+    print('--onnx--')
+    print(onnx_result.shape)
+    print(np.argmax(onnx_result, axis=1))
 
     # Comparision
     assert np.allclose(

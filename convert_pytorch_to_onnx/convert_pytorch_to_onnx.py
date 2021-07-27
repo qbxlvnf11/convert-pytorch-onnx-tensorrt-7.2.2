@@ -125,7 +125,7 @@ if __name__ == '__main__':
     onnx_result = sess.run(None,
                             {net_feed_input[0]: img_resize
                             })[0]
-    print(args)
+    
     print('--pytorch--')
     print(pytorch_result.shape)
     print(np.argmax(pytorch_result, axis=1))

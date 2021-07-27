@@ -38,9 +38,6 @@ def parse_args():
         default='True')
     parser.add_argument('--opset_version', type=int, help='opset version',
         default=9)
-    #parser.add_argument('--verify',action='store_true',help='verify the onnx model')
-    #parser.add_argument('--shape-inference', action='store_true', help='graph value of inferenced_onnx')
-    #parser.add_argument('--run', action='store_true', help='real-data inference')
     args = string_to_bool(parser.parse_args())
 
     return args
@@ -60,12 +57,9 @@ def string_to_bool(args):
 
 def load_image(img_path, size):
     img_raw = io.imread(img_path)
-    #print('img_raw.shape:', img_raw.shape)
     img_raw = np.rollaxis(img_raw, 2, 0)
     img_resize = resize(img_raw / 255, size, anti_aliasing=True)
-    #img_resize = img_resize[np.newaxis, :, :, :]
     img_resize = img_resize.astype(np.float32)
-    #print('img_resize.shape:', img_resize.shape)
     return img_resize, img_raw
 
 if __name__ == '__main__':

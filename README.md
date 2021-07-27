@@ -15,7 +15,7 @@ Description
 Contents
 =============
 #### - Converting Pytorch models to onnx
-  - https://blog.naver.com/qbxlvnf11/222342675767
+  - Details: https://blog.naver.com/qbxlvnf11/222342675767
   - Export onnx
   - Load onnx
   - Inference onnx

@@ -32,6 +32,10 @@ https://pytorch.org/docs/stable/onnx.html
 
 https://developer.nvidia.com/tensorrt
 
+#### - TensorRT Engine Builder
+
+https://docs.nvidia.com/deeplearning/tensorrt/api/python_api/infer/Core/Builder.html
+
 Author
 =============
 

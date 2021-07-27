@@ -72,9 +72,7 @@ if __name__ == '__main__':
     else:
         print('download file...')
         checkpoint = load_state_dict_from_url(args.checkpoint_download_url, map_location=args.device)
-    #print(checkpoint)
     resnet18 = models.resnet18()
-    #print(resnet18)
     resnet18.load_state_dict(checkpoint)
     resnet18.cpu().eval()
 

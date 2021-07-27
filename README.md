@@ -40,6 +40,10 @@ https://developer.nvidia.com/tensorrt
 
 https://docs.nvidia.com/deeplearning/tensorrt/api/python_api/infer/Core/Builder.html
 
+#### - ImageNet 1000 samples
+
+https://www.kaggle.com/ifigotin/imagenetmini-1000
+
 Author
 =============
 

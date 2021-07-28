@@ -30,14 +30,17 @@ Contents
   - Comparision output of TensorRT and output of onnx
   - Comparision of time efficiency
 
-Examples of ResNet18
+Examples of inferencing ResNet18
 =============
+#### - Converting Pytorch model to onnx
 ```
 python convert_pytorch_to_onnx.py --load_file false --sample_image_path ./imagenet-mini/train/n12267677/n12267677_6842.JPEG
 ```
+#### - Converting onnx model to TensorRT (TF32)
 ```
 python convert_onnx_to_tensorrt.py --sample_image_path ./imagenet-mini/train/n12267677/n12267677_6842.JPEG
 ```
+#### - Converting onnx model to TensorRT (FP16)
 ```
 python convert_onnx_to_tensorrt.py --sample_image_path ./imagenet-mini/train/n12267677/n12267677_6842.JPEG --fp16_mode true
 ```

@@ -21,7 +21,7 @@ def parse_args():
     parser.add_argument('--device', help='cuda or not',
         default='cuda:0')
     parser.add_argument('--input_shape', help='input size',
-        default=[1, 3, 224, 192])
+        default=[1, 3, 256, 192])
     parser.add_argument('--load_file', help='load model using file path or url',
         default='True')
     parser.add_argument('--checkpoint_file_path', help='checkpoint file path',

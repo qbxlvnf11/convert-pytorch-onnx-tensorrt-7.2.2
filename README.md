@@ -15,14 +15,14 @@ Description
 
 Contents
 =============
-#### - Converting Pytorch model to onnx
+#### - Converting Pytorch to onnx
   - Details: https://blog.naver.com/qbxlvnf11/222342675767
   - Export onnx
   - Load onnx
   - Inference onnx
   - Comparision output of onnx and output of Pytorch (same or not)
 
-#### - Converting onnx model to TensorRT
+#### - Converting onnx to TensorRT
   - Build TensorRT engine
   - Save TensorRT engine
   - Load TensorRT engine

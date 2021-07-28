@@ -47,7 +47,7 @@ python convert_onnx_to_tensorrt.py --sample_image_path ./imagenet-mini/train/n12
 
 #### - Comparision of time efficiency (ResNet18, inferencing of './imagenet-mini/train/n12267677/n12267677_6842.JPEG')
   - Time efficiency
-    - onnx mode:  0.01603
+    - onnx:  0.01603
     - TensorRT (TF32): 0.001297 (about 12 times more efficient than onnx)
     - TensorRT (FP16): 0.000697 (about 23 times more efficient than onnx)
   - There is a risk that the performance of fp16 will be greatly degraded.

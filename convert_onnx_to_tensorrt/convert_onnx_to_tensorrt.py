@@ -30,7 +30,7 @@ def parse_args():
     parser.add_argument('--onnx_model_path', help='onnx mode path',
         default='./onnx_output.onnx')    
     parser.add_argument('--input_shape', help='input size',
-        default=[1, 3, 224, 192])
+        default=[1, 3, 256, 192])
     parser.add_argument('--tensorrt_engine_path',  help='experted onnx path',
         default='./tensorrt_engine.engine')
     parser.add_argument('--sample_image_path', help='sample image path',

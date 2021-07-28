@@ -23,8 +23,30 @@ Contents
   - Comparision output of onnx and output of Pytorch (same or not)
 
 #### - Converting onnx model to TensorRT
-  - 
+  - Build TensorRT engine
+  - Save TensorRT engine
+  - Load TensorRT engine
+  - Inference TensorRT engine
+  - Comparision output of TensorRT and output of onnx
+  - Comparision of time efficiency
 
+Examples of ResNet18
+=============
+```
+python convert_pytorch_to_onnx.py --load_file false --sample_image_path ./imagenet-mini/train/n12267677/n12267677_6842.JPEG
+```
+```
+python convert_onnx_to_tensorrt.py --sample_image_path ./imagenet-mini/train/n12267677/n12267677_6842.JPEG
+```
+```
+python convert_onnx_to_tensorrt.py --sample_image_path ./imagenet-mini/train/n12267677/n12267677_6842.JPEG --fp16_mode true
+```
+
+#### - Comparision of time efficiency (ResNet18, inferencing of './imagenet-mini/train/n12267677/n12267677_6842.JPEG')
+  - onnx mode:  0.01603
+  - TensorRT (TF32): 0.001297 (about 12 times more efficient than onnx)
+  - TensorRT (FP16): 0.000697 (about 23 times more efficient than onnx)
+  
 References
 =============
 

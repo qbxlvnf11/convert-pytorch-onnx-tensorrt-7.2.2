@@ -37,7 +37,7 @@ def parse_args():
         default='./sample.jpg')
     parser.add_argument('--fp16_mode',  help='fp16 mode of TensorRT',
         default='False')
-    parser.add_argument('--max_batch_size', help='The maximum batch size which can be used at execution time, and also the batch size for which the ICudaEngine will be optimized',
+    parser.add_argument('--max_batch_size', type=int, help='The maximum batch size which can be used at execution time, and also the batch size for which the ICudaEngine will be optimized',
         default=1)
     args = string_to_bool(parser.parse_args())
 

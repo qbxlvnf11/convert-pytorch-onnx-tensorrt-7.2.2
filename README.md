@@ -21,6 +21,7 @@ Contents
   - Load onnx
   - Inference onnx
   - Comparision output of onnx and output of Pytorch (same or not)
+  - Dynamic axes (implicit batch)
 
 #### - Converting onnx to TensorRT
   - Build TensorRT engine
@@ -34,15 +35,15 @@ Examples of inferencing ResNet18
 =============
 #### - Converting Pytorch model to onnx
 ```
-python convert_pytorch_to_onnx.py --load_file false --sample_image_path ./imagenet-mini/train/n12267677/n12267677_6842.JPEG
+python convert_pytorch_to_onnx.py --sample_folder_path ./data --batch_size 1 
 ```
 #### - Converting onnx model to TensorRT (TF32)
 ```
-python convert_onnx_to_tensorrt.py --sample_image_path ./imagenet-mini/train/n12267677/n12267677_6842.JPEG
+python convert_onnx_to_tensorrt.py --sample_folder_path ./data
 ```
 #### - Converting onnx model to TensorRT (FP16)
 ```
-python convert_onnx_to_tensorrt.py --sample_image_path ./imagenet-mini/train/n12267677/n12267677_6842.JPEG --fp16_mode true
+python convert_onnx_to_tensorrt.py --sample_folder_path ./data --fp16_mode true
 ```
 
 #### - Comparision of time efficiency (ResNet18, inferencing of './imagenet-mini/train/n12267677/n12267677_6842.JPEG')

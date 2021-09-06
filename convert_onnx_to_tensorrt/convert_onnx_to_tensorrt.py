@@ -100,7 +100,7 @@ def load_image_folder(folder_path, img_size, batch_size):
     return torch_images.cpu().numpy()
 
 #def build_engine(onnx_model_path, min_batch_size, max_batch_size, img_size, output_shape, fp16_mode, dynamic_axes, tensorrt_engine_path):
-def build_engine(onnx_model_path, fp16_mode, tensorrt_engine_path):
+def build_engine(onnx_model_path, fp16_mode, tensorrt_engine_path, batch_size):
     explicit_batch = 1 << (int)(trt.NetworkDefinitionCreationFlag.EXPLICIT_BATCH)
     # Create builder, config, network, parser, runtime
     with trt.Builder(TRT_LOGGER) as builder, \
@@ -112,7 +112,7 @@ def build_engine(onnx_model_path, fp16_mode, tensorrt_engine_path):
         # tnesorrt version: 21.08
         '''config.max_workspace_size = 1 << 28 # Amount of memory available to the builder when building an optimized engine'''
         builder.max_workspace_size = 1 << 28 # Amount of memory available to the builder when building an optimized engine
-        #builder.max_batch_size = max_batch_size
+        builder.max_batch_size = max_batch_size
         if fp16_mode:
             print('fp16 mode')
             builder.fp16_mode = True
@@ -229,7 +229,7 @@ if __name__ == '__main__':
 
     # Build TensorRT engine
     #build_engine(args.onnx_model_path, args.min_batch_size, args.max_batch_size, args.img_size, args.output_shape, args.fp16_mode, args.dynamic_axes, args.tensorrt_engine_path)
-    build_engine(args.onnx_model_path, args.fp16_mode, args.tensorrt_engine_path)
+    build_engine(args.onnx_model_path, args.fp16_mode, args.tensorrt_engine_path, args.batch_size)
 
     # Read the engine from the file and deserialize
     with open(args.tensorrt_engine_path, "rb") as f, trt.Runtime(TRT_LOGGER) as runtime: 

@@ -11,7 +11,11 @@ Description
   - NVIDIA SDK for high-performance deep learning inference
   - Deep learning inference optimizer and runtime that delivers low latency and high throughput for deep learning inference applications
   - More details about TensorRT: https://blog.naver.com/qbxlvnf11/222403199156
-  - Setting TensorRT environment using Docker: https://blog.naver.com/qbxlvnf11/222441230287
+  
+TensorRT Docker env setting
+=============
+
+#### - Setting TensorRT environment using Docker: https://blog.naver.com/qbxlvnf11/222441230287
 
 Contents
 =============

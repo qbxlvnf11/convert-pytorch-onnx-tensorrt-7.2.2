@@ -12,7 +12,7 @@ Description
   - Deep learning inference optimizer and runtime that delivers low latency and high throughput for deep learning inference applications
   - More details about TensorRT: https://blog.naver.com/qbxlvnf11/222403199156
   
-TensorRT Docker env setting
+TensorRT Docker Env Setting
 =============
 
 #### - Setting TensorRT environment using Docker: https://blog.naver.com/qbxlvnf11/222441230287
